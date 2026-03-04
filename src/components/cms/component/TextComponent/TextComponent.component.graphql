@@ -1,0 +1,3 @@
+fragment TextComponentData on TextComponent {
+  Text
+}
