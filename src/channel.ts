@@ -10,13 +10,14 @@ const customUrl = process.env.SITE_DOMAIN ? (process.env.SITE_DOMAIN.startsWith(
 
 // Determine the ChannelURL
 const channelId = customUrl || vercelUrl || netlifyUrl || 'http://localhost:3000';
+const channelUrl = new URL(channelId);
 
 /**
  * The default channel definition for this deployment
  */
 export const channel = ChannelRepository.createDefinition(
   "Basic Project",              // The Website / Application name
-  channelId,                    // The primary (main) domain where this website/application is deployment
+  channelUrl,                    // The primary (main) domain where this website/application is deployment
   ["en", "en-US", "en-UK"],     // The locales that are available on the website/application
   cms_url                       // The domain where the CMS is hosted
 );
